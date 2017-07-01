@@ -4,6 +4,7 @@ source ../paint.sh
 source ./array_define.sh
 
 #数组基本操作
+# 包括访问数组元素、获取数组长度、获取数组某元素长度、获取数组所有元素、为数组下标赋值、数组的分片访问、数组某个元素和整个数组的删除操作。
 
 # 访问数组元素: 通过数组下标访问数组元素，下标从 0 开始
 #格式：
@@ -65,19 +66,31 @@ arr=(1 2 3 4 5)
 #格式：
 #         ${array_name[@]:startIndex:endIndex}
 #      或 ${array_name[*]:startIndex:endIndex}
-#      注意：[startIndex, endIndex),包括开始下标的值，但不包括结束下标的值。
+#      注意：[startIndex, endIndex],包括开始下标的值，因为包括结束下标的值。
 echo "数组分片访问实例："
-echo ${arr[@]:1:4}
-echo ${arr[*]:1:4}
+echo "arr: ${arr[@]}"
+echo ${arr[@]:1:3}
+echo ${arr[*]:1:3}
 
+#为数组下标赋值
+#        array_name[n]=newValue， n >= 0
+#        1)、n不越界，则会修改该下标的值为新的指定值
+#        2)、n越界，则会将新赋值的值追加到数组尾部
+arr[2]=30
+echo "arr: ${arr[@]}"
+arr[10]=10
+echo "arr: ${arr[@]}"
 
 #数组删除操作
 #格式：
 #         清楚数组下标为n的元素：   unset array_name[n]
 #         清楚整个数组：            unset array_name
 echo "数组删除操作实例："
-echo "arr length is: ${#arr}"
+echo "arr: ${arr[@]}"
+echo "arr length is: ${#arr[@]}"
 unset arr[1]
-echo "arr length is: ${#arr} after delete one element!"
+echo "arr: ${arr[@]}"
+echo "arr length is: ${#arr[@]} after delete one element!"
 unset arr
-echo "arr length is: ${#arr} after delete all the elements!"
+echo "arr: ${arr[@]}"
+echo "arr length is: ${#arr[@]} after delete all the elements!"
