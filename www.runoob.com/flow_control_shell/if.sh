@@ -4,8 +4,10 @@
 
 #Shell的流程控制语句不能为空，如果if中的else分支没有执行语句，则不要写else分支
 
+# condition  和 方括号[] 之间必须要有空格，否则会有语法错误。
+
 #  if格式:
-#  if condition
+#  if [ condition ]
 #  then
 #    command1
 #    command2
@@ -17,7 +19,7 @@
 if [ $(ps -ef | grep -c "ssh") -gt 1 ]; then echo "true"; fi
 
 #  if-else格式：
-#  if condition
+#  if [ condition ]
 #  then
 #    command1
 #    command2
@@ -31,12 +33,12 @@ if [ $(ps -ef | grep -c "ssh") -gt 1 ]; then echo "true"; fi
 #  fi
 
 #  if-elif-if格式：
-#  if condition1
+#  if [ condition1 ]
 #  then
 #    command1
 #    ......
 #    commandN
-#  elif condition2
+#  elif [ condition2 ]
 #  then
 #    command1
 #    ......
@@ -46,7 +48,7 @@ if [ $(ps -ef | grep -c "ssh") -gt 1 ]; then echo "true"; fi
 #    command1
 #    ......
 #    commandN
-#  elif conditionN
+#  elif [ conditionN ]
 #  then
 #    command1
 #    ......

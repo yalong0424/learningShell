@@ -100,3 +100,19 @@ case $num in
 		echo "你输入的数字不在2到5或者6到9之间"
 		;;
 esac
+
+option="${1}"
+case ${option} in
+	-f)
+		File="${2}"
+		echo "File name is ${File}"
+		;;
+	-d)
+		Dir="${2}"
+		echo "Dir Name is ${Dir}"
+		;;
+	*)
+		echo "basename ${0}: usage: [-f file] | [-d directory]"
+		exit 1 #Command to come out of the program with status 1
+		;;
+esac

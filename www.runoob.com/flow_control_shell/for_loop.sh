@@ -47,6 +47,20 @@ do
 	echo $arg
 done
 
+paintLine
+echo "遍历输出command_shell目录下以 .gitignore 开头的所有文件"
+path="../command_shell"
+for file in $path/.gitignore*
+do
+	echo $file
+done
+
+paintLine
+echo "遍历输出command_shell目录下以 .txt 为后缀的所有文件"
+for file in $path/*.txt
+do
+	echo $file
+done
 
 #Shell中for循环的几种常用写法
 
@@ -121,7 +135,7 @@ done
 
 paintLine
 #demo2
-for file in $(ls *.sh)
+for file in $(ls *.sh)  #遍历输出当前目录下所有以 .sh 为后缀的文件
 do
 	echo $file is a shell file
 done

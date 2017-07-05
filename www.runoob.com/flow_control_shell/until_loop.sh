@@ -4,8 +4,10 @@
 
 source ../paint.sh
 
+#condition 与 方括号[] 之间一定要有空格，否则会有语法错误。
+
 #  until循环格式：
-#  until condition
+#  until [ condition ]
 #  do
 #    command1
 #    command2
@@ -31,4 +33,13 @@ until (($i >= ${#array[@]}))
 do
 	echo $i ": " ${array[$i]}
 	let "i++"
+done
+
+paintLine
+#使用until命令输出0-9之间的数字
+i=0
+until [ ! $i -lt 10 ]  # ！非
+do
+	echo $i
+	i=`expr $i + 1`
 done

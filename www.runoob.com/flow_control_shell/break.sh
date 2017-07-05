@@ -2,8 +2,13 @@
 #author: jiming.wang
 #url: www.runoob.com
 
-#  break语句：含义同其他语言，跳出本层循环。
+source ../paint.sh
 
+#  break语句:
+#  1、只有break，其后什么都不跟，默认为跳出本次循环
+#  2、在嵌套循环中，break命令后面还可以跟一个整数，表示跳出第几层循环，如 break n ，表示跳出第n层循环。
+
+echo "break默认跳出本层循环实例："
 while true
 do
 	echo -n "输入1到5之间的数字"
@@ -42,4 +47,19 @@ do
 		echo "所有游戏结束！！！！！！！！！！！！！！！！！！！！！！！！！！！"
 		break
 	fi
+done
+
+paintLine
+echo "break n 实例：在嵌套循环中用于跳出第n层循环"
+for i in 1 2 3
+do
+	for j in 0 5 10
+	do
+		if test $i -eq 2 -a $j -eq 5  # if [ $i -eq 2 -a $j -eq 5 ]
+		then
+			break 2
+		else
+			echo "$i: $j"
+		fi
+	done
 done

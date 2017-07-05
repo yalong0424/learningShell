@@ -4,8 +4,10 @@
 
 source ../paint.sh
 
+#condition 与 方括号[] 之间一定要有空格，否则会有语法错误。
+
 #  while循环格式：
-#  while condition
+#  while [ condition ]
 #  do
 #    command1
 #    command2
@@ -30,7 +32,7 @@ i=0
 while [ $i -lt ${#array[@]} ]
 do
 	echo ${array[i]}
-	let "i++"
+	i=`expr $i + 1`
 done
 
 paintLine
